@@ -1,0 +1,184 @@
+$very-dark-desaturated-blue: hsl(238, 29%, 16%);
+$soft-red: hsl(14, 88%, 65%);
+$very-dark-grayish-blue: hsl(237, 12%, 33%);
+$dark-grayish-blue: hsl(240, 6%, 50%);
+$soft-violet: hsl(273, 75%, 66%);
+$soft-blue: hsl(240, 73%, 65%);
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: 400;
+    color: $very-dark-desaturated-blue;
+    background: linear-gradient(to bottom, $soft-violet, $soft-blue);
+}
+
+ul {
+    list-style: none;
+}
+  
+a {
+    text-decoration: none;
+}
+
+.faq {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    &-container {
+        max-width: 850px;
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 2rem;
+        display: flex;
+    }
+    &-img,
+    &-content {
+        width: 50%;
+    }
+    &-img {
+        position: relative;
+        &__box {
+            position: absolute;
+            width: 40%;
+            top: 42%;
+            left: -20%;
+            z-index: 999;
+        }
+        &__overflow {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        &__woman {
+            position: absolute;
+            width: 110%;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -85px;
+            z-index: 888;
+        }
+        &__pattern {
+            position: absolute;
+            width: 209%;
+            top: 50%;
+            transform: translateY(-59%);
+            left: -119%;
+            z-index: 777;
+        }
+    }
+    &-content {
+        padding: 7rem 9rem 7rem 2rem;
+    }
+    &-title {
+        font-size: 3rem;
+        font-weight: 700;
+        padding-bottom: 2.5rem;
+    }
+    &-item {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e6e1e1;
+        &__ques {
+            color: $very-dark-grayish-blue;
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &:hover {
+                color: $soft-red;
+                cursor: pointer;
+            }
+            &--active {
+                font-weight: 700;
+            }
+            img {
+                transition: transform 300ms ease-in;
+            }
+            img.arrow-up {
+                transform: rotate(180deg);
+            }
+        }
+        &__ans {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: $dark-grayish-blue;
+            visibility: hidden;
+            height: 0;
+            transition: visibility, height, padding-top 300ms ease-in;
+            &--active {
+                visibility: visible;
+                height: auto;
+                padding-right: 1rem;
+                padding-top: 2rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .faq {
+        &-content {
+            padding-right: 3rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .faq {
+        height: auto;
+        padding-top: 14.5rem;
+        padding-bottom: 8.5rem;
+        &-container {
+            width: 100%;
+            display: block;
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+        &-img,
+        &-content {
+            width: 100%;
+        }
+        &-title {
+            text-align: center;
+        }
+        &-img {
+            &__box {
+                display: none;
+            }
+            &__overflow {
+                overflow: visible;
+            }
+            &__woman {
+                content: url(./images/illustration-woman-online-mobile.svg);
+                width: auto;
+                top: -109px;
+                left: calc(50% + -14px);
+                transform: translateX(-50%);
+            }
+            &__pattern {
+                content: url(./images/bg-pattern-mobile.svg);
+                width: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        &-content {
+            padding: 14rem 2.5rem 4.5rem;
+        }
+    }
+}
+
+
+
